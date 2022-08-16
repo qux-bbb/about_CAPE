@@ -20,19 +20,6 @@ import tempfile
 from xml.dom.minidom import parseString
 
 
-def subprocess_check_output(cmd_list):
-    """
-    封装 check_output
-    返回returncode和output
-    cmd_list举例: cmd_list = ['dir', 'D:/']
-    """
-    try:
-        output = subprocess.check_output(cmd_list, stderr=subprocess.STDOUT)
-        return 0, output
-    except Exception as e:
-        return e.returncode, e.output
-
-
 def set_ip(machine_name, ip):
     machine_xml = subprocess.run(
         ["virsh", "dumpxml", machine_name], capture_output=True
