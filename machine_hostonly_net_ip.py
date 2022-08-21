@@ -65,7 +65,7 @@ def set_ip(machine_name, ip):
         print("Network defined, restarting it")
         subprocess.run(["virsh", "net-destroy", "hostonly"])
         subprocess.run(["virsh", "net-start", "hostonly"])
-        print(f"name: {name}, mac: {mac}, ip: {ip}, bind has been set up")
+        print(f"name: {machine_name}, mac: {mac}, ip: {ip}, bind has been set up")
 
 
 def del_machine_ip(machine_name):
