@@ -95,7 +95,6 @@ def delete_machines(machine_names):
         if name in machine_names:
             parent = host.parentNode
             parent.removeChild(host)
-            break
 
     with tempfile.NamedTemporaryFile(mode="w") as temp_file:
         network_doc.writexml(temp_file)
