@@ -107,6 +107,8 @@ def delete_machines(machine_names):
         subprocess.run(["virsh", "net-destroy", "hostonly"])
         subprocess.run(["virsh", "net-start", "hostonly"])
 
+        print("You need to delete machine info from kvm.conf and restart sandbox")
+
 
 def print_usage():
     script_path = sys.argv[0]
