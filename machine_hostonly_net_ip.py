@@ -9,15 +9,23 @@ virsh net-destroy hostonly
 virsh net-start hostonly
 
 查看、绑定、删除绑定机器与hostonly网络的ip关系
-python machine_hostonly_net_ip.py set <machine_name> <ip>
-python machine_hostonly_net_ip.py del <machine_name>
-python machine_hostonly_net_ip.py get <machine_name>
+sudo python machine_hostonly_net_ip.py set <machine_name> <ip>
+sudo python machine_hostonly_net_ip.py del <machine_name>
+sudo python machine_hostonly_net_ip.py get <machine_name>
 """
 
+import os
 import sys
 import subprocess
 import tempfile
 from xml.dom.minidom import parseString
+
+
+def is_sudo():
+    if os.geteuid() == 0:
+        return True
+    else:
+        return False
 
 
 def set_ip(machine_name, ip):
@@ -150,15 +158,19 @@ def get_ip(machine_name):
 def print_usage():
     script_path = sys.argv[0]
     print("usage:")
-    print(f"    python {script_path} set <machine_name> <ip>")
-    print(f"    python {script_path} del|get <machine_name>")
+    print(f"    sudo python {script_path} set <machine_name> <ip>")
+    print(f"    sudo python {script_path} del|get <machine_name>")
     print("example:")
-    print(f"    python {script_path} set win7 192.168.100.131")
-    print(f"    python {script_path} del win7")
-    print(f"    python {script_path} get all")
+    print(f"    sudo python {script_path} set win7 192.168.100.131")
+    print(f"    sudo python {script_path} del win7")
+    print(f"    sudo python {script_path} get all")
 
 
 def main():
+    if not is_sudo():
+        print('you need "sudo" privilege!!!')
+        print_usage()
+        return
     args = sys.argv
     print(args)
     arg_num = len(args) - 1

@@ -21,10 +21,18 @@ virsh net-destroy hostonly
 virsh net-start hostonly
 """
 
+import os
 import subprocess
 import sys
 import tempfile
 from xml.dom.minidom import parseString
+
+
+def is_sudo():
+    if os.geteuid() == 0:
+        return True
+    else:
+        return False
 
 
 def delete_machines(machine_names):
@@ -113,12 +121,16 @@ def delete_machines(machine_names):
 def print_usage():
     script_path = sys.argv[0]
     print("usage:")
-    print(f"    python {script_path} <machine_names>")
+    print(f"    sudo python {script_path} <machine_names>")
     print("example:")
-    print(f"    python {script_path} win7-2 win7-3")
+    print(f"    sudo python {script_path} win7-2 win7-3")
 
 
 def main():
+    if not is_sudo():
+        print('you need "sudo" privilege!!!')
+        print_usage()
+        return
     args = sys.argv
     arg_num = len(args) - 1
     if arg_num == 0:
