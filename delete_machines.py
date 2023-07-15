@@ -121,9 +121,9 @@ def delete_machines(machine_names):
 def print_usage():
     script_path = sys.argv[0]
     print("usage:")
-    print(f"    sudo python {script_path} <machine_names>")
+    print(f"    sudo python3 {script_path} <machine_names>")
     print("example:")
-    print(f"    sudo python {script_path} win7-2 win7-3")
+    print(f"    sudo python3 {script_path} win7-2 win7-3")
 
 
 def main():
