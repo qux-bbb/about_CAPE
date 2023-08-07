@@ -7,3 +7,4 @@ github地址: https://github.com/kevoreilly/CAPEv2
 - [安装相关](./安装相关.md)  
 - [虚拟机配置相关](./虚拟机配置相关.md)  
 - [使用相关](./使用相关.md)  
+- [日志相关](./日志相关.md)  
