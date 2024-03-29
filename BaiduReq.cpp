@@ -87,5 +87,7 @@ int main()
     if (hRequest) WinHttpCloseHandle(hRequest);
     if (hConnect) WinHttpCloseHandle(hConnect);
     if (hSession) WinHttpCloseHandle(hSession);
+
     getchar();
+    return 0;
 }
