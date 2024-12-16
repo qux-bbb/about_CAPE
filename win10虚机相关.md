@@ -3,7 +3,13 @@
 ```r
 安装虚机，内存建议设置4G，硬盘建议设置128G，网络可以暂时用NAT
 (这里内存设置4G是因为本机内存只有16G，设置太大内存如8G会运行很慢导致超时错误，如果内存足够大可以设置8G)
-安装后关机移除镜像，开机设置初始快照
+
+管理员权限打开命令行，激活Administrator
+net user Administrator /active:yes
+
+关机移除镜像
+开机选择帐户Administrator登陆
+设置初始快照
 
 下载安装python32位
 https://www.python.org/ftp/python/3.8.10/python-3.8.10.exe
