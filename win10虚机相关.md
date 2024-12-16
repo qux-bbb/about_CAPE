@@ -36,7 +36,9 @@ exmaple: sudo python3 ./machine_hostonly_net_ip.py set win10 192.168.100.133
 虚机中设置ipv4网络为"自动获得IP地址"，在"高级"设置中添加默认网关，如: 192.168.100.1
 注意手动设置DNS  
 
-重启虚机，命令行确认虚机ip为绑定的ip，任务管理器确认有pythonw.exe进程
+重启虚机，命令行确认虚机ip为绑定的ip，确认有pythonw.exe进程
+ipconfig
+tasklist | findstr pythonw.exe
 如果有问题(无法获取ip)，尝试关机之后在虚机的网络设置页面将"Device model"改成"Hypervisor default"，启动后重新设置ipv4网络试试
 
 创建快照
