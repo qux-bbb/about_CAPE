@@ -43,5 +43,15 @@ tasklist | findstr pythonw.exe
 
 创建快照
 
-在 /opt/CAPEv2/custom/conf/kvm.conf 配置文件中设置虚机相应信息
+切换为cape用户，修改配置文件 /opt/CAPEv2/custom/conf/kvm.conf
+设置虚机相应信息，注意 machines 和 interface 设置正确的值
+示例如下(tags和arch不重要)：  
+[win10-1]
+label = win10-1
+platform = windows
+ip = 192.168.100.129                                               
+tags = x64 
+snapshot = snapshot_new
+arch = x64
+配置生效需要重启 cape 和 cape-web 服务，可以等所有配置修改后重启服务  
 ```
