@@ -25,7 +25,7 @@ pip3 install pillow pywintrace
 管理员权限打开powershell命令行，设置允许执行pwoershell脚本
 Set-ExecutionPolicy Unrestricted
 使用powershell脚本禁用Windows上一些不需要的功能
-https://github.com/kevoreilly/CAPEv2/blob/master/installer/win10_disabler.ps1
+https://raw.githubusercontent.com/kevoreilly/CAPEv2/refs/heads/master/installer/win10_disabler.ps1
 
 virt-manager中创建hostonly网络，模式为"Isolated"，将虚机网络切换为hostonly
 
