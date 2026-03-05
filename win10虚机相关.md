@@ -31,6 +31,8 @@ https://raw.githubusercontent.com/kevoreilly/CAPEv2/refs/heads/master/installer/
 使用Windows Update Blocker 禁用虚机windows更新
 https://www.sordum.org/
 
+关闭传递优化
+
 virt-manager中创建hostonly网络，模式为"Isolated"，将虚机网络切换为hostonly
 
 使用machine_hostonly_net_ip.py绑定虚机在hostonly网络的ip：
