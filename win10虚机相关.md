@@ -25,6 +25,7 @@ pip3 install pillow pywintrace
 管理员权限打开powershell命令行，设置允许执行pwoershell脚本
 Set-ExecutionPolicy Unrestricted
 使用powershell脚本禁用Windows上一些不需要的功能
+下载脚本前先关闭Defender，避免被隔离
 https://raw.githubusercontent.com/kevoreilly/CAPEv2/refs/heads/master/installer/win10_disabler.ps1
 
 使用Windows Update Blocker 禁用虚机windows更新
