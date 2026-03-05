@@ -34,17 +34,25 @@ https://www.sordum.org/
 关闭传递优化
 
 virt-manager中创建hostonly网络，模式为"Isolated"，将虚机网络切换为hostonly
+等待出现hostonly网络的ip，如: 192.168.100.133
+如果没出现尝试取消勾选“Link state”，应用后再勾选“Link state”应用看看
+在虚机中手动设置静态网络，包括
+ip(192.168.100.133)
+子网掩码(255.255.255.0)
+DNS地址(如114.114.114.114)
+默认网关(192.168.100.1)
+启用“设为按流量计费的连接”
 
+如果后续需要批量复制虚机，可以这样设置网络：
 使用machine_hostonly_net_ip.py绑定虚机在hostonly网络的ip：
 usage:   sudo python3 ./machine_hostonly_net_ip.py set <machine_name> <ip>
 exmaple: sudo python3 ./machine_hostonly_net_ip.py set win10 192.168.100.133
-
 虚机中设置ipv4网络为"自动获得IP地址"
-手动设置DNS
+手动设置DNS，如: 114.114.114.114
 在"高级"设置中添加默认网关，如: 192.168.100.1
 
-重启虚机，命令行确认虚机ip为绑定的ip，确认有pythonw.exe进程
-ipconfig
+重启虚机，命令行确认虚机ip为设置或绑定的ip，DNS正确，确认有pythonw.exe进程
+ipconfig /all
 tasklist | findstr pythonw.exe
 如果有问题(无法获取ip)，尝试关机之后在虚机的网络设置页面将"Device model"改成"Hypervisor default"，启动后重新设置ipv4网络试试
 
